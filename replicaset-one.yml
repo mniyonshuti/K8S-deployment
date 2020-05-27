@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: niyo-replicaset
+  labels:
+    app: niyo-app
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: niyo-pod
+      labels:
+        app: niyo-app
+    spec:
+      containers:
+        - name: niyo-container
+          image: nginx
+  replicas: 6
+  selector:
+    matchLabels:
+      app: niyo-app
