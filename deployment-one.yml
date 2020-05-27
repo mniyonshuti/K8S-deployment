@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: niyo-app2-deployment
+  name: niyo-app-11-deployment
   labels:
-    app: niyo-app2
-    type: front-end
+    app: niyo-app-11
+    tier: front-end
 spec:
   replicas: 4
-  selector:
-    matchLabels:
-      app: niyo-app2
   template:
     metadata:
+      name: niyo-app-11-pod
       labels:
         app: niyo-app2
     spec:
       containers:
         - name: niyo-deployment-container
           image: nginx
+  selector:
+    matchLabels:
+      app: niyo-app2
